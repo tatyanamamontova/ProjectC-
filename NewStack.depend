@@ -1,0 +1,12 @@
+# depslib dependency file v1.0
+1487971238 source:c:\projects\newstack\main.cpp
+	<iostream>
+	"StackHeader.h"
+
+1487972839 c:\projects\newstack\stackheader.h
+
+1487972414 source:c:\projects\newstack\stackfunction.cpp
+	"StackHeader.h"
+	<assert.h>
+	<iostream>
+
