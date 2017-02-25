@@ -19,7 +19,7 @@ int main()
     std::cout << "\n"<<new_stack.top()<<std::endl;
     new_stack.pop();
     std::cout << "\n"<<new_stack.top()<<std::endl;
-    //new_stack.push(100500);
+    new_stack.push(100500);
     std::cout << "\n"<<new_stack.top()<<std::endl;
     return 0;
 }

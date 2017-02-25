@@ -7,7 +7,7 @@ private:
 
     static const int reserve_ = 100;
 
-    float *pData;
+    float Data[reserve_];
     unsigned int size_;
 
     MyStack(){};
@@ -19,7 +19,7 @@ public:
     MyStack(const unsigned int _size);
     float& operator[](const unsigned int _n);
     int getSize(){return size_;}
-    float top(){return pData[size_ - 1];}
+    float top(){return Data[size_ - 1];}
 
     void pop();
     void push(float _value);

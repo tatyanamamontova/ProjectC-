@@ -13,7 +13,6 @@
 MyStack::MyStack(const unsigned int _size): size_(_size)
 {
     ASSERT_OK();
-    pData = new float[reserve_];
 }
 
 void MyStack::damp()
@@ -28,12 +27,11 @@ float& MyStack::operator[](const unsigned int _n)
 {
     ASSERT_OK();
 
-    return pData[_n];
+    return Data[_n];
 }
 
 void MyStack::clr()
 {
-    delete [] pData;
 
     size_ = 0;
 }
@@ -53,7 +51,7 @@ void MyStack::push(float _value)
         assert(0);
     }
 
-    pData [size_++] = _value;
+    Data [size_++] = _value;
     ASSERT_OK();
 }
 
@@ -81,7 +79,7 @@ void MyStack::pop()
 
     for (unsigned int i=0; i < size_ - 1; i++)
     {
-        pNewData[i] = pData[i];
+        pNewData[i] = Data[i];
     }
 
     clr();
@@ -89,6 +87,6 @@ void MyStack::pop()
     size_ = new_size;
     for (unsigned int i=0; i < size_; i++)
     {
-       pData[i] = pNewData[i];
+       Data[i] = pNewData[i];
     }
 }
