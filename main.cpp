@@ -17,9 +17,10 @@ int main()
         std::cout << new_stack[i]<<" ";
     }
     std::cout << "\n"<<new_stack.top()<<std::endl;
-    new_stack.pop();
-    std::cout << "\n"<<new_stack.top()<<std::endl;
+    //new_stack.pop();
+    //std::cout << "\n"<<new_stack.top()<<std::endl;
     new_stack.push(100500);
     std::cout << "\n"<<new_stack.top()<<std::endl;
+    new_stack.damp();
     return 0;
 }

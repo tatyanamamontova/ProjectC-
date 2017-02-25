@@ -1,38 +1,60 @@
 #include "StackHeader.h"
 #include <assert.h>
 #include <iostream>
+#include <iomanip>
 
-#define ASSERT_OK()                         \
-    if (!ok())                              \
-    {                                       \
-        damp();                             \
-        assert(0);                          \
-    }                                       \
+void MyStack::ASSERT_OK()
+{
+   if (!ok())
+    {
+        damp();
+        assert(0);
+    }
+}
+
+
+MyStack::MyStack()
+{
+    size_ = 0;
+
+}
 
 
 MyStack::MyStack(const unsigned int _size): size_(_size)
 {
     ASSERT_OK();
+
 }
 
 void MyStack::damp()
 {
-    std::cout << "maximum_size =" << reserve_ << std::endl;
-
-    std::cout << "current_size =" << getSize()<< std::endl;
+    if (! ok())
+    {
+        std::cout << "Stack(ERROR)" << std::endl;
+    }
+    else
+    {
+        std::cout << "Stack(OK)" << std::endl;
+    }
+    std::cout << "\t maximum_size =" << reserve_ << "\n" << "\t current_size =" << getSize()<< "\n" << " \t elements data" << std::endl;
+    for (int i =0; i < reserve_; i++ )
+    {
+        std::cout << "\t\t [" << i << "]" << " " <<Data[i] << "\n";
+    }
 }
 
 
 float& MyStack::operator[](const unsigned int _n)
 {
+
     ASSERT_OK();
 
     return Data[_n];
 }
 
+
 void MyStack::clr()
 {
-
     size_ = 0;
 }
 
@@ -41,18 +63,17 @@ MyStack::~MyStack()
     clr();
 }
 
-void MyStack::push(float _value)
+bool MyStack::push(float _value)
 {
     ASSERT_OK();
-
-    if (size_+1 > reserve_)
+    if (size_ >= reserve_)
     {
         std::cout << "You can't push the new value" << std::endl;
-        assert(0);
+        return false;
     }
-
     Data [size_++] = _value;
     ASSERT_OK();
+    return true;
 }
 
 bool MyStack::empty()
@@ -89,4 +110,5 @@ void MyStack::pop()
     {
        Data[i] = pNewData[i];
     }
+    ASSERT_OK();
 }
