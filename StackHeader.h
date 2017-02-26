@@ -18,6 +18,7 @@ public:
     MyStack();
     MyStack(const unsigned int _size);
     float& operator[](const unsigned int _n);
+    int getReserve(){return reserve_;}
     int getSize(){return size_;}
     float top(){return Data[size_ - 1];}
 

@@ -23,7 +23,6 @@ MyStack::MyStack()
 MyStack::MyStack(const unsigned int _size): size_(_size)
 {
     ASSERT_OK();
-
 }
 
 void MyStack::damp()
@@ -36,7 +35,9 @@ void MyStack::damp()
     {
         std::cout << "Stack(OK)" << std::endl;
     }
+
     std::cout << "\t maximum_size =" << reserve_ << "\n" << "\t current_size =" << getSize()<< "\n" << " \t elements data" << std::endl;
+
     for (int i =0; i < reserve_; i++ )
     {
         std::cout << "\t\t [" << i << "]" << " " <<Data[i] << "\n";
@@ -72,6 +73,7 @@ bool MyStack::push(float _value)
         return false;
     }
     Data [size_++] = _value;
+
     ASSERT_OK();
     return true;
 }
@@ -106,9 +108,11 @@ void MyStack::pop()
     clr();
 
     size_ = new_size;
+
     for (unsigned int i=0; i < size_; i++)
     {
        Data[i] = pNewData[i];
     }
+
     ASSERT_OK();
 }
