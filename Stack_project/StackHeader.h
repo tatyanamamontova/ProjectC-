@@ -5,27 +5,29 @@ class MyStack
 {
 private:
 
-    static const int reserve_ = 100;
+    static const int reserve_ = 15;
 
-    float *pData;
+    float Data[reserve_];
     unsigned int size_;
 
-    MyStack(){};
 
     void clr();
 
 public:
 
+    MyStack();
     MyStack(const unsigned int _size);
     float& operator[](const unsigned int _n);
+    int getReserve(){return reserve_;}
     int getSize(){return size_;}
-    float top(){return pData[size_ - 1];}
+    float top(){return Data[size_ - 1];}
 
     void pop();
-    void push(float _value);
+    bool push(float _value);
     bool empty();
-    bool ok(){return (size_ <= reserve_);}
+    bool ok()const {return (size_ <= reserve_ && size_>=0);}
     void damp();
+    void ASSERT_OK();
     ~MyStack();
 };
 
