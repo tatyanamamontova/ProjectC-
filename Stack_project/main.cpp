@@ -1,8 +1,10 @@
 #include <iostream>
 #include "StackHeader.h"
+#include "StackFunction.cpp"
 #include <assert.h>
 
 //using namespace std;
+using std::cout;
 #define ASSERT_EQ(condition) \
     if(!condition){          \
         std::cout << "-";    \
@@ -40,25 +42,37 @@ bool CannotPushMore()
 
 int main()
 {
+    MyStack s(3);
+    cout << "Empty stack created! :)\n\nusing top(): ";
+    cout << s.top();
+    cout << " <-- WTF? Stack is empty!\n";
 
-    MyStack new_stack(10);
-    for (int i = 0; i<10; i++)
-    {
-        new_stack[i] = i;
-    }
+    cout << "s[2]=" << s[2];
+    cout << " <-- WTF? Stack is still empty!\n";
 
-    std::cout << new_stack.getSize()<<std::endl;
-    for (int i = 0; i<10; i++)
-    {
-        std::cout << new_stack[i]<<" ";
-    }
-    std::cout << "\n"<<new_stack.top()<<std::endl;
+    cout << "s[11]=" << s[3];
+    cout << " <-- OMG :(\n\n";
 
-    new_stack.push(100500);
-    std::cout << "\n"<<new_stack.top()<<std::endl;
-    new_stack.damp();
+    s.push(22); s.push(33); s.push(44);
+    cout << "Added 3 values..\n";
+    cout << "size=" << s.getSize();
+    cout << " <-- Why size=6? We've pushed only 3 values :(!\n";
 
-    TEST(PushSingleNumber(100));
+    cout << "\nPushing 10 more..\n";
+    s.push(22); s.push(33); s.push(44);
+    s.push(22); s.push(33); s.push(44);
+    s.push(22); s.push(33); s.push(44);
+    s.push(22);
+    cout << "\Alright, it's full:)\n";
+    cout << "\nLet's pop everything .\n";
+    s.pop(); s.pop(); s.pop(); s.pop();
+    s.pop(); s.pop(); s.pop(); s.pop();
+    s.pop(); s.pop(); s.pop(); s.pop();
+    s.pop(); s.pop(); s.pop();
+    cout << "15 values popped.\n";
+    cout << "The next pop will crash the program :(((( ....\n";
+    s.pop(); // -________________________-
+
     return 0;
 }
 
