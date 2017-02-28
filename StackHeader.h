@@ -1,3 +1,11 @@
+//--------------------------------------------------
+//! @file StackFunction.cpp
+//! Implements a stack class
+//!
+//! @author Mamontova Tatyana, Feb. 2017
+//--------------------------------------------------
+
+
 #ifndef STACKHEADER_H_INCLUDED
 #define STACKHEADER_H_INCLUDED
 

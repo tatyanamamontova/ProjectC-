@@ -1,3 +1,10 @@
+//--------------------------------------------------
+//! @file StackFunction.cpp
+//! Implements a stack class
+//!
+//! @author Mamontova Tatyana, Feb. 2017
+//--------------------------------------------------
+
 #include "StackHeader.h"
 #include <assert.h>
 #include <iostream>
