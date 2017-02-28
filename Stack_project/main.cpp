@@ -1,8 +1,10 @@
 #include <iostream>
 #include "StackHeader.h"
+//#include "StackFunction.cpp"
 #include <assert.h>
 
 //using namespace std;
+using std::cout;
 #define ASSERT_EQ(condition) \
     if(!condition){          \
         std::cout << "-";    \
@@ -40,25 +42,28 @@ bool CannotPushMore()
 
 int main()
 {
+    MyStack s;
+    s.push(22); s.push(33); s.push(44);
+    cout << "Added 3 values..\n";
+    cout << "size=" << s.getSize();
+    //cout << " <-- Why size=6? We've pushed only 3 values :(!\n";
+    cout << "\nPushing 10 more..\n";
+    s.push(22); s.push(33); s.push(44);
+    s.push(22); s.push(33); s.push(44);
+    s.push(22); s.push(33); s.push(44);
+    s.push(22);
+    cout << "\n  Alright, it's 13:)\n";
+    cout << "\nLet's pop everything .\n";
+    s.pop(); s.pop(); s.pop(); s.pop();
+    s.pop(); s.pop(); s.pop(); s.pop();
+    s.pop(); s.pop(); s.pop(); s.pop();
+    s.pop();
+    cout << s.getSize();
+    s.pop();
+    cout << "13 values popped.\n";
+    TEST(PushSingleNumber(1000));
+    TEST(CannotPushMore());
 
-    MyStack new_stack(10);
-    for (int i = 0; i<10; i++)
-    {
-        new_stack[i] = i;
-    }
-
-    std::cout << new_stack.getSize()<<std::endl;
-    for (int i = 0; i<10; i++)
-    {
-        std::cout << new_stack[i]<<" ";
-    }
-    std::cout << "\n"<<new_stack.top()<<std::endl;
-
-    new_stack.push(100500);
-    std::cout << "\n"<<new_stack.top()<<std::endl;
-    new_stack.damp();
-
-    TEST(PushSingleNumber(100));
     return 0;
 }
 
