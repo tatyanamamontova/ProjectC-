@@ -1,3 +1,11 @@
+//--------------------------------------------------
+//! @file StackFunction.cpp
+//! Implements a stack class
+//!
+//! @author Mamontova Tatyana, Feb. 2017
+//--------------------------------------------------
+
+
 #ifndef STACKHEADER_H_INCLUDED
 #define STACKHEADER_H_INCLUDED
 
@@ -16,11 +24,10 @@ private:
 public:
 
     MyStack();
-    MyStack(const unsigned int _size);
     float& operator[](const unsigned int _n);
     int getReserve(){return reserve_;}
     int getSize(){return size_;}
-    float top(){return Data[size_ - 1];}
+    float top();
 
     void pop();
     bool push(float _value);

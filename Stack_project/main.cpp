@@ -1,6 +1,6 @@
 #include <iostream>
 #include "StackHeader.h"
-#include "StackFunction.cpp"
+//#include "StackFunction.cpp"
 #include <assert.h>
 
 //using namespace std;
@@ -42,36 +42,27 @@ bool CannotPushMore()
 
 int main()
 {
-    MyStack s(3);
-    cout << "Empty stack created! :)\n\nusing top(): ";
-    cout << s.top();
-    cout << " <-- WTF? Stack is empty!\n";
-
-    cout << "s[2]=" << s[2];
-    cout << " <-- WTF? Stack is still empty!\n";
-
-    cout << "s[11]=" << s[3];
-    cout << " <-- OMG :(\n\n";
-
+    MyStack s;
     s.push(22); s.push(33); s.push(44);
     cout << "Added 3 values..\n";
     cout << "size=" << s.getSize();
-    cout << " <-- Why size=6? We've pushed only 3 values :(!\n";
-
+    //cout << " <-- Why size=6? We've pushed only 3 values :(!\n";
     cout << "\nPushing 10 more..\n";
     s.push(22); s.push(33); s.push(44);
     s.push(22); s.push(33); s.push(44);
     s.push(22); s.push(33); s.push(44);
     s.push(22);
-    cout << "\Alright, it's full:)\n";
+    cout << "\n  Alright, it's 13:)\n";
     cout << "\nLet's pop everything .\n";
     s.pop(); s.pop(); s.pop(); s.pop();
     s.pop(); s.pop(); s.pop(); s.pop();
     s.pop(); s.pop(); s.pop(); s.pop();
-    s.pop(); s.pop(); s.pop();
-    cout << "15 values popped.\n";
-    cout << "The next pop will crash the program :(((( ....\n";
-    s.pop(); // -________________________-
+    s.pop();
+    cout << s.getSize();
+    s.pop();
+    cout << "13 values popped.\n";
+    TEST(PushSingleNumber(1000));
+    TEST(CannotPushMore());
 
     return 0;
 }
